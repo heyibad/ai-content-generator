@@ -1,19 +1,22 @@
 import { Button } from '@/components/ui/button'
-import { Search } from 'lucide-react'
+import { Search, UserRoundPlus } from 'lucide-react'
 import React from 'react'
 
 function Header() {
   return (
-    <div className='p-2 py-5 md:p-5  shadow-sm border-b-2 flex justify-between items-center gap-4'>
-      <div className="flex items-center rounded-3xl gap-8 py-2 px-6 border max-w-xl">
-        <Search className='w-4'/>
-        <input type="text" placeholder="Search" className="outline-none"/>
+    <div className='p-2 py-5 md:p-5  shadow-sm border-b-2 flex justify-between items-center gap-1 md:gap-4'>
+      <div className="flex items-center rounded-3xl gap-2 md:gap-8 py-2 px-4 md:px-6 border max-w-72 md:max-w-xl">
+        <Search className='w-4 '/>
+        <input type="text" placeholder="Search" className="outline-none pl-4 md:pl-0 w-44 md:w-full"/>
       </div>
       <div className="pl-2">
       <Button
   className='rounded-3xl text-sm h-10'>
-  <span className="inline">🔥Join Membership</span>
-  <span className="hidden md:inline"> for $9.99/Month</span>
+ 
+  <span className="inline md:hidden">
+    <UserRoundPlus/>
+  </span>
+  <span className="hidden md:inline">🔥Join Membership for $9.99/Month</span>
 </Button>
 
       </div>        

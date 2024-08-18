@@ -8,7 +8,7 @@ function Layout({
     children: React.ReactNode;
 }>) {
     return (
-        <div>
+        <div className="overflow-hidden">
             <div className="md:w-64 hidden md:block fixed">
                 <SideNav />
             </div>
