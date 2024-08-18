@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Template } from "@/template";
+import { Sparkles } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -24,8 +25,9 @@ function Card({ item }: { item: Template }) {
                 {item.desc}
             </p>
             <Link href={`dashboard/tool/${item.slug}`}>
-            <Button className="px-4 py-2 text-white bg-primary rounded-md">
-                Generate 
+            <Button className="px-4 py-2 text-white font-semibold bg-primary rounded-md w-full">
+            <Sparkles size={12} className=" mr-1"/> 
+             Generate
             </Button>
             </Link>
         </div>

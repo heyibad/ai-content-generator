@@ -34,9 +34,11 @@ function SideNav() {
         console.log(path);
     }, [path]);
     return (
-        <div className="h-screen p-5 shadow-sm border">
+        <div className="h-screen p-5 shadow-sm border bg-white">
             <div className="flex justify-center">
+                <Link href={"/dashboard"}>
                 <Image src={"/logo.svg"} alt="logo" width={100} height={100} />
+                </Link>
             </div>
             <div className="mt-16">
                 {MenuList.map((menu, index) => {

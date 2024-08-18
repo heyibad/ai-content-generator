@@ -1,5 +1,7 @@
+"use client"
 import { Button } from "@/components/ui/button";
 import { Template } from "@/template";
+import { Sparkles } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
@@ -9,7 +11,7 @@ function FormSection({ data }: { data?: Template }) {
     
   }
     return (
-        <div className="p-6 shadow-md border rounded-lg ">
+        <div className="p-6 shadow-md border rounded-lg bg-white">
             <Image src={data!.icon} alt="logo" width={50} height={50} />
             <h2 className="font-bold my-2 text-2xl text-primary">
                 {data?.name}
@@ -32,7 +34,9 @@ function FormSection({ data }: { data?: Template }) {
                   </div>
                 ))
               }
-              <Button type="submit" className="w-full">Generate</Button>
+              <Button type="submit" className="w-full font-semibold ">
+                <Sparkles  size={12}  className="mr-1 "/>
+                 Generate</Button>
             </form>
         </div>
     );
