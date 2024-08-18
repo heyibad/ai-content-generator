@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Template } from "@/template";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 function Card({ item }: { item: Template }) {
@@ -22,9 +23,11 @@ function Card({ item }: { item: Template }) {
             <p className="font-medium text-gray-500 line-clamp-3">
                 {item.desc}
             </p>
+            <Link href={`dashboard/tool/${item.slug}`}>
             <Button className="px-4 py-2 text-white bg-primary rounded-md">
-                Use Template
+                Generate 
             </Button>
+            </Link>
         </div>
     );
 }
