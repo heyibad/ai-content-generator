@@ -7,8 +7,7 @@ import React from "react";
 
 function Card({ item }: { item: Template }) {
     return (
-        <div
-            className="flex mx-2 h-64 w-72 my-8 items-center justify-center flex-col p-5 bg-white rounded-md shadow-md
+        <div className="flex mx-2 h-64 w-72 my-8 items-center justify-center flex-col p-5 bg-white rounded-md shadow-md
         gap-3 hover:scale-105 transition-all
         "
         >

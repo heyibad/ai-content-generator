@@ -3,12 +3,21 @@ import { Button } from "@/components/ui/button";
 import { Template } from "@/template";
 import { Sparkles } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 function FormSection({ data }: { data?: Template }) {
+  const [formData, setFormData] = useState<{[Key:string]:string}>({})
+  const onHandleChange=(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>{
+    const {name,value} = e.target
+    setFormData({
+      ...formData,
+      [name]: value
+    })
+    
+  }
   const onSubmit=(e: React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault()
-    
+    console.log(formData)
   }
     return (
         <div className="p-6 shadow-md border rounded-lg bg-white">
@@ -22,12 +31,13 @@ function FormSection({ data }: { data?: Template }) {
               {
                 data?.form.map((field,index)=>(
                   <div className="mb-2" key={index}>
-                    <label htmlFor={field.name} className="text-sm text-gray-500 mb-2 block">{field.label}</label>
+                    <label htmlFor={field.name} className="text-sm text-gray-500 mb-2 block">
+                      {field.label} </label>
                     {
                       field.type === "text" ? (
-                        <input type="text" name={field.name} id={field.name} placeholder={field.placeholder} required={field.required} className="border outline-none p-2 rounded-lg w-full mb-3"/>
+                        <input type="text" name={field.name} id={field.name} placeholder={field.placeholder} required={field.required} className="border outline-none p-2 rounded-lg w-full mb-3" onChange={onHandleChange}/>
                       ) : (
-                        <textarea name={field.name} id={field.name} placeholder={field.placeholder} required={field.required} className="outline-none border p-4 h-36 rounded-lg w-full mb-3"/>
+                        <textarea name={field.name} id={field.name} placeholder={field.placeholder} required={field.required} className="outline-none border p-4 h-36 rounded-lg w-full mb-3" onChange={onHandleChange}/>
                       )
                     }
 

@@ -14,7 +14,7 @@ export interface Form{
     type:string;
     name:string;
     placeholder:string;
-    required:boolean;
+    required?:boolean;
 
 }
 
@@ -29,7 +29,7 @@ export const template:Template[]=[
         slug:"blog-title",
         form:[
            { label:"Enter your niche:",type:"text", name:"niche",placeholder:"Enter your niche",required:true},
-           { label:"Enter your content:",type:"textarea", name:"content",placeholder:"Enter your content",required:true},
+           { label:"Enter your content: (optional)",type:"textarea", name:"content",placeholder:"Enter your content"},
 
         ]
     },
