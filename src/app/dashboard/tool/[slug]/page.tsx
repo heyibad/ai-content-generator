@@ -14,7 +14,7 @@ const page = ({ params: { slug } }: PropsTypes) => {
         (tool: Template) => tool.slug === slug
     );
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 p-5 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 p-4 gap-5 items-center">
             <FormSection data={toolType} />
             <OutputSection />
         </div>

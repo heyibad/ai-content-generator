@@ -20,7 +20,7 @@ function FormSection({ data }: { data?: Template }) {
     console.log(formData)
   }
     return (
-        <div className="p-6 shadow-md border rounded-lg bg-white">
+        <div className="p-6 shadow-md border rounded-lg bg-white col-span-1 h-[100vh] ">
             <Image src={data!.icon} alt="logo" width={50} height={50} />
             <h2 className="font-bold my-2 text-2xl text-primary">
                 {data?.name}
