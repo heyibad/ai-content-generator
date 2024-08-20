@@ -3,14 +3,15 @@ import { Button } from "@/components/ui/button";
 import "@toast-ui/editor/dist/toastui-editor.css";
 import { Editor } from "@toast-ui/react-editor";
 import { Copy } from "lucide-react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
-function OutputSection() {
+function OutputSection({ output }: { output: string }) {
     const editorRef = useRef<any>();
-    const handleEditorChange = () => {
-        console.log(editorRef.current?.getInstance().getMarkdown
-        ());
-    }
+
+    useEffect(() => {
+        const editorInstance = editorRef.current?.getInstance();
+        editorInstance.setMarkdown(output);
+    }, [output]);
     return (
         <div className="py-4 shadow-md border rounded-lg bg-white col-span-2 h-[100vh] w-[85vw] md:w-full ">
             <div className="flex justify-between items-center pb-3 px-3">
@@ -22,12 +23,11 @@ function OutputSection() {
             </div>
             <div className="w-[80vw] md:w-full m-auto">
                 <Editor
-                ref={editorRef}
-                onChange={handleEditorChange}
+                    ref={editorRef}
                     initialValue="hello react editor world!"
                     previewStyle="vertical"
                     height="600px"
-                    initialEditType="wsywig"
+                    initialEditType="wysiwyg"
                     useCommandShortcut={true}
                 />
             </div>
