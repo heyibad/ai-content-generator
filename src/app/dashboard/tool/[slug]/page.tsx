@@ -4,6 +4,9 @@ import FormSection from "../_components/FormSection";
 import OutputSection from "../_components/OutputSection";
 import { Template, template } from "@/template";
 import { chatSession } from "@/Ai";
+import { db } from "../../../../../utils/db";
+import { aiSass } from "../../../../../utils/schema";
+import { useUser } from "@clerk/nextjs";
 
 interface PropsTypes {
     params: {
@@ -12,6 +15,7 @@ interface PropsTypes {
 }
 
 const Page = ({ params: { slug } }: PropsTypes) => {
+    const { user } = useUser();
     const [loading, setLoading] = useState(false);
     const [output, setOutput] = useState<string>("");
     const toolType: Template | undefined = template.find(
@@ -34,13 +38,34 @@ const Page = ({ params: { slug } }: PropsTypes) => {
             const responseText = await result.response.text();
             console.log(responseText);
             setOutput(responseText);
+            saveToDB(formdata, toolType.slug, responseText);
         } catch (error) {
             console.error("Error generating AI content:", error);
         } finally {
             setLoading(false);
         }
     };
+    const dateGenerator = () => {
+        const currentDate = new Date();
+        const day = String(currentDate.getDate()).padStart(2, "0");
+        const month = String(currentDate.getMonth() + 1).padStart(2, "0"); // Months are zero-based, so we add 1
+        const year = currentDate.getFullYear();
 
+        const formattedDate = `${day}/${month}/${year}`;
+        // console.log(formattedDate);
+        return formattedDate;
+    };
+    const saveToDB = async (formData: any, slugVal: string, aiOut: string) => {
+        const result = await db
+            .insert(aiSass)
+            .values({
+                formData: formData,
+                aiResponse: aiOut,
+                templateSlug: slugVal,
+                createdAt: dateGenerator(),
+                createdBy: user?.primaryEmailAddress?.emailAddress,
+            })
+    };
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 p-4 gap-5 items-center">
             <FormSection
@@ -50,7 +75,7 @@ const Page = ({ params: { slug } }: PropsTypes) => {
                 }}
                 loading={loading}
             />
-            <OutputSection output={output}/>
+            <OutputSection output={output} />
         </div>
     );
 };
