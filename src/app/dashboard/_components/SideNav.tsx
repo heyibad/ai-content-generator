@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
+import Usage from "./Usage";
 
 function SideNav() {
     const MenuList = [
@@ -34,7 +35,7 @@ function SideNav() {
         console.log(path);
     }, [path]);
     return (
-        <div className="h-screen p-5 shadow-sm border bg-white">
+        <div className="h-screen relative p-5 shadow-sm border bg-white">
             <div className="flex justify-center">
                 <Link href={"/dashboard"}>
                 <Image src={"/logo.svg"} alt="logo" width={100} height={100} />
@@ -56,6 +57,9 @@ function SideNav() {
                         </div>
                     );
                 })}
+            </div>
+            <div className="absolute bottom-10 left-0 w-full">
+                <Usage/>
             </div>
         </div>
     );

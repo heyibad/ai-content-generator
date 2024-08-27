@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import FormSection from "../_components/FormSection";
 import OutputSection from "../_components/OutputSection";
 import { Template, template } from "@/template";
@@ -7,6 +7,8 @@ import { chatSession } from "@/Ai";
 import { db } from "../../../../../utils/db";
 import { aiSass } from "../../../../../utils/schema";
 import { useUser } from "@clerk/nextjs";
+import { TotalUsage } from "@/app/(context)/TotalUsageContext";
+import { useRouter } from "next/navigation";
 
 interface PropsTypes {
     params: {
@@ -15,6 +17,8 @@ interface PropsTypes {
 }
 
 const Page = ({ params: { slug } }: PropsTypes) => {
+    const {totalUsage,setTotalUsage}=useContext(TotalUsage)
+    const router = useRouter()
     const { user } = useUser();
     const [loading, setLoading] = useState(false);
     const [output, setOutput] = useState<string>("");
@@ -28,6 +32,11 @@ const Page = ({ params: { slug } }: PropsTypes) => {
     }
 
     const GenerateAiContent = async (formdata: { [key: string]: string }) => {
+        if(totalUsage>=1000){
+            alert("Your Limit is up! Kindly Upgrade to premium plan")
+            router.push("/dasboard/billing")
+            return
+        }
         setLoading(true);
         const selectedPrompt = toolType.aiPrompt;
         const FinalPrompt = JSON.stringify(formdata) + " " + selectedPrompt;
