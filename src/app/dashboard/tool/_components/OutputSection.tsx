@@ -16,7 +16,9 @@ function OutputSection({ output }: { output: string }) {
         <div className="py-4 shadow-md border rounded-lg bg-white col-span-2 h-[100vh] w-[85vw] md:w-full ">
             <div className="flex justify-between items-center pb-3 px-3">
                 <h2 className="font-bold m-1 text-2xl text-primary">Output</h2>
-                <Button className=" bg-primary text-white px-4 py-2 rounded-lg">
+                <Button
+                onClick={()=>navigator.clipboard.writeText(output)}
+                className=" bg-primary text-white px-4 py-2 rounded-lg">
                     <Copy size={16} className="mr-1" />
                     Copy
                 </Button>
