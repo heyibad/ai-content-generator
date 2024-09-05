@@ -32,7 +32,7 @@ const Page = ({ params: { slug } }: PropsTypes) => {
     }
 
     const GenerateAiContent = async (formdata: { [key: string]: string }) => {
-        if(totalUsage>=1000){
+        if(totalUsage>=10000){
             alert("Your Limit is up! Kindly Upgrade to premium plan")
             router.push("/dasboard/billing")
             return
