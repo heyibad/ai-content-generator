@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import { ThemeProvider } from "./_components/theme-provider";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -19,7 +20,13 @@ export default function RootLayout({
     <ClerkProvider>
 
     <html lang="en">
-      <body className={outfit.className}>{children}</body>
+      <body className={outfit.className}>
+
+
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
     </ClerkProvider>
 

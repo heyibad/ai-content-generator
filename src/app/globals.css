@@ -67,3 +67,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+.wrapper {
+  @apply max-w-screen-2xl mx-auto
+}

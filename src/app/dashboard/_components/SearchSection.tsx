@@ -10,10 +10,10 @@ function SearchSection({setSearch}: Readonly<{setSearch: (value: string) => void
         "
         >
             <h2 className="text-2xl md:text-3xl font-bold text-white">
-                Browse All Template List
+                Browse All Tools List
             </h2>
             <p className="p-1 text-white text-sm">What would you like to create today?</p>
-            <div className="flex p-2 mt-4 bg-white rounded-md items-center border ">
+            <div className="flex p-2 mt-4 bg-white rounded-md items-center border dark:bg-[#18181B] dark:text-white">
                 <Search className="text-primary"/>
                 <input
                     type="text"
