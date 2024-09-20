@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import SideNav from "./_components/SideNav";
 import Header from "./_components/Header";
 import { TotalUsage } from "../(context)/TotalUsageContext";
-import { ThemeProvider } from "../_components/theme-provider";
+import { ThemeProvider } from "../(context)/theme-provider";
 
 function Layout({
     children,
