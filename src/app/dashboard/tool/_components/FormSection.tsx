@@ -29,7 +29,7 @@ function FormSection({
         userFormInput(formData);
     };
     return (
-        <div className="p-6 shadow-md border rounded-lg bg-white col-span-1 h-[100vh] ">
+        <div className="p-6 shadow-md border rounded-lg bg-white col-span-1 h-[100vh] dark:bg-[#18181B]">
             <Image src={data!.icon} alt="logo" width={50} height={50} />
             <h2 className="font-bold my-2 text-2xl text-primary">
                 {data?.name}
