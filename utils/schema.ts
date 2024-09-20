@@ -26,6 +26,7 @@ export const Users = pgTable("users", {
     name: varchar("name", { length: 255 }),
     createdAt: timestamp("createdAt").defaultNow().notNull(),
     updatedAt: timestamp("updatedAt").defaultNow().notNull(),
+    isVerified: boolean("isVerified").default(false),
     verifyCode: varchar("verifyCode", { length: 6 }),
     subscription: subscriptionType("subscription").default("basic"), // Default to 'basic'
 });
