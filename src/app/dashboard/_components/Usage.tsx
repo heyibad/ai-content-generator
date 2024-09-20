@@ -1,21 +1,24 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { useUser } from "@clerk/nextjs";
+import {  useSession } from "next-auth/react";
+
 import React, { useContext, useEffect, useState } from "react";
 import { db } from "../../../../utils/db";
-import { aiSass } from "../../../../utils/schema";
+import { Content } from "../../../../utils/schema";
 import { eq } from "drizzle-orm";
 import { TotalUsage } from "@/app/(context)/TotalUsageContext";
 
 function Usage() {
-    const { user } = useUser();
+    const { data: session, status } = useSession();
+
+    const user = session?.user?.email;
     const {totalUsage,setTotalUsage}=useContext(TotalUsage)
     async function getData() {
         const results = await db
             .select()
-            .from(aiSass)
+            .from(Content)
             .where(
-                eq(aiSass.createdBy, user?.primaryEmailAddress?.emailAddress!)
+                eq(Content.createdBy, user!)
             );
             usage(results);
     }
