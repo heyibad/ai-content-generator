@@ -5,10 +5,10 @@ import OutputSection from "../_components/OutputSection";
 import { Template, template } from "@/template";
 import { chatSession } from "@/Ai";
 import { db } from "../../../../../utils/db";
-import { aiSass } from "../../../../../utils/schema";
-import { useUser } from "@clerk/nextjs";
+import { Content } from "../../../../../utils/schema";
 import { TotalUsage } from "@/app/(context)/TotalUsageContext";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 interface PropsTypes {
     params: {
@@ -17,9 +17,12 @@ interface PropsTypes {
 }
 
 const Page = ({ params: { slug } }: PropsTypes) => {
+    const { data: session, status } = useSession();
+
+    const user = session?.user?.email;
+
     const {totalUsage,setTotalUsage}=useContext(TotalUsage)
     const router = useRouter()
-    const { user } = useUser();
     const [loading, setLoading] = useState(false);
     const [output, setOutput] = useState<string>("");
     const toolType: Template | undefined = template.find(
@@ -66,14 +69,13 @@ const Page = ({ params: { slug } }: PropsTypes) => {
     };
     const saveToDB = async (formData: any, slugVal: string, aiOut: string) => {
         const result = await db
-            .insert(aiSass)
+            .insert(Content)
             .values({
-                formData: formData,
+                formData: formData , // Assign a default value to formData
                 aiResponse: aiOut,
-                templateSlug: slugVal,
-                createdAt: dateGenerator(),
-                createdBy: user?.primaryEmailAddress?.emailAddress,
-            })
+                toolName: slugVal,
+                createdBy: user!,
+            }) 
     };
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 p-4 gap-5 items-center">
