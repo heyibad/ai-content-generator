@@ -1,18 +1,34 @@
-import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { NextRequest, NextResponse } from 'next/server';
+import { getToken } from 'next-auth/jwt';
+export { default } from 'next-auth/middleware';
 
-export default clerkMiddleware((auth, req) => {
-
-    if (isProtectedRoute(req)) auth().protect();
-});
-const isProtectedRoute = createRouteMatcher(["/dashboard(.*)"
-, "/"
-]);
 export const config = {
-    matcher: [
-        // Skip Next.js internals and all static files, unless found in search params
-        "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
-        // Always run for API routes
-        "/(api|trpc)(.*)",
-    ],
+  matcher: ['/dashboard/:path*', '/login', '/signup', '/', '/verify/:path*'],
 };
 
+export async function middleware(request: NextRequest) {
+  const token = await getToken({
+    req: request, 
+    secret: process.env.JWT_SECRET,
+    secureCookie: process.env.NODE_ENV === "production"
+  });
+  console.log("Token in middleware:", token);
+  
+  const url = request.nextUrl;
+
+  if (
+    token &&
+    (url.pathname.startsWith('/login') ||
+      url.pathname.startsWith('/signup') ||
+      url.pathname.startsWith('/verify') ||
+      url.pathname === '/')
+  ) {
+    return NextResponse.redirect(new URL('/dashboard', request.url));
+  }
+
+  if (!token && url.pathname.startsWith('/dashboard')) {
+    return NextResponse.redirect(new URL('/login', request.url));
+  }
+
+  return NextResponse.next();
+ }
