@@ -68,6 +68,6 @@
   }
 }
 
-.wrapper {
-  @apply max-w-screen-2xl mx-auto
+.wrapper{
+  @apply max-w-screen-2xl mx-auto ;
 }
