@@ -19,7 +19,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <Session>
-                <body className={outfit.className}>
+                <body className={`${outfit.className} dark:bg-[#18181B] dark:text-white `}>
                     <ThemeProvider
                         attribute="class"
                         defaultTheme="system"
