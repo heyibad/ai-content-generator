@@ -1,7 +1,8 @@
 import ThemeToggle from "@/app/_components/theme-toggle";
 import { Button } from "@/components/ui/button";
-import { Search, UserRoundPlus } from "lucide-react";
+import { LogOut, Search, UserRoundPlus } from "lucide-react";
 import React from "react";
+import Logout from "./Logout";
 
 function Header() {
     return (
@@ -14,16 +15,15 @@ function Header() {
                     className="outline-none pl-4 md:pl-0 w-44 md:w-full"
                 />
             </div>
-            <div className="pl-2 flex items-center justify-center">
-                <ThemeToggle className="mx-3 " />
-                <Button className="rounded-3xl text-sm h-10">
-                    <span className="inline md:hidden">
-                        <UserRoundPlus />
-                    </span>
-                    <span className="hidden md:inline">
+            <div className="pl-2 flex items-center justify-center gap-2">
+                <ThemeToggle className="w-9 h-9 " />
+                <Button className="rounded-2xl h-9  text-sm hidden md:flex bg-primary dark:bg-black dark:hover:bg-primary ">
+                 
+                    <span>
                         🔥Join Membership for $9.99/Month
                     </span>
                 </Button>
+              <Logout/>
             </div>
         </div>
     );
