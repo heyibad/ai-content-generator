@@ -8,9 +8,9 @@ const Page = () => {
     return (
         <div className=" bg-gray-100 text-gray-900 flex justify-center dark:bg-[#18181B] dark:text-white ">
             <div className="max-w-screen-xl m-0 sm:m-10 md:m-0 bg-white shadow sm:rounded-lg flex justify-center flex-1 dark:bg-[#18181B] dark:text-white">
-                <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
+                <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12 ">
                     <div className="mt-1 flex flex-col items-center">
-                        <h1 className="text-2xl xl:text-3xl font-extrabold flex gap-4">
+                        <h1 className="text-2xl xl:text-3xl font-extrabold flex gap-4 mt-16 md:mt-4">
                             Login <ThemeToggle />
                         </h1>
                         <div className="w-full flex-1 mt-8">
