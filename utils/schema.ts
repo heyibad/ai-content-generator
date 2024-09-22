@@ -4,8 +4,8 @@ import {
     varchar,
     timestamp,
     boolean,
-    uuid,
     pgEnum,
+    serial,
 } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 
@@ -18,7 +18,7 @@ export const subscriptionType = pgEnum("subscriptionType", [
 
 // Users Table
 export const Users = pgTable("users", {
-    id: uuid("id").defaultRandom().primaryKey(),
+    id: serial("id").primaryKey(), // Auto-incrementing integer ID
     email: varchar("email", { length: 255 }).notNull().unique(), // Ensure email is unique
     password: varchar("password", { length: 255 }),
     username: varchar("username", { length: 255 }).notNull().unique(),
@@ -33,7 +33,7 @@ export const Users = pgTable("users", {
 
 // Content Table
 export const Content = pgTable("content", {
-    id: uuid("id").defaultRandom().primaryKey(),
+    id: serial("id").primaryKey(), // Auto-incrementing integer ID
     formData: text("formData"),
     aiResponse: text("aiResponse"),
     toolName: varchar("toolName", { length: 255 }),
@@ -43,7 +43,7 @@ export const Content = pgTable("content", {
 
 // Subscription Table
 export const Subscription = pgTable("subscription", {
-    id: uuid("id").defaultRandom().primaryKey(),
+    id: serial("id").primaryKey(), // Auto-incrementing integer ID
     email: varchar("email", { length: 255 }).notNull(), // Foreign key to users' email
     username: varchar("username", { length: 255 }).notNull(),
     expiryDate: timestamp("expiryDate").notNull(),
