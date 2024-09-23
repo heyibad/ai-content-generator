@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Template } from "@/template";
+import { Template } from "@/helpers/template";
 import { Sparkles } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +7,8 @@ import React from "react";
 
 function Card({ item }: { item: Template }) {
     return (
-        <div className="flex mx-2 h-64 w-72 my-4 items-center justify-center flex-col p-5 bg-white rounded-md shadow-md
+        <div
+            className="flex mx-2 h-64 w-72 my-4 items-center justify-center flex-col p-5 bg-white rounded-md shadow-md
         gap-4 hover:scale-105 transition-all dark:bg-[#18181B] dark:text-white dark:shadow-lg
         "
         >
@@ -24,10 +25,10 @@ function Card({ item }: { item: Template }) {
                 {item.desc}
             </p>
             <Link href={`dashboard/tool/${item.slug}`}>
-            <Button className="mt-2 px-4 py-2 text-white font-semibold bg-primary rounded-md w-full">
-            <Sparkles size={12} className=" mr-1"/> 
-             Generate
-            </Button>
+                <Button className="mt-2 px-4 py-2 text-white font-semibold bg-primary rounded-md w-full">
+                    <Sparkles size={12} className=" mr-1" />
+                    Generate
+                </Button>
             </Link>
         </div>
     );
