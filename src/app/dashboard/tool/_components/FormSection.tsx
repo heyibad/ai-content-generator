@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Template } from "@/template";
+import { Template } from "@/helpers/template";
 import { Loader2Icon, Sparkles } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
