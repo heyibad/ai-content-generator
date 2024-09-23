@@ -3,6 +3,7 @@ import { BackgroundBeamsWithCollision } from "./_components/bg";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, LockOpen, User } from "lucide-react";
 import ThemeToggle from "./_components/theme-toggle";
+import Link from "next/link";
 
 export default function Home() {
     return (
@@ -17,17 +18,20 @@ export default function Home() {
                 />
                 <div className="gap-4 flex ">
                     <ThemeToggle />
-
-                    <Button className="gap-1 p-3 dark:text-white">
-                        {" "}
-                        <User size={18} />
-                        Get Started
-                    </Button>
-                    <Button className="gap-2 p-3 px-5 dark:text-white">
-                        {" "}
-                        <LockOpen size={18} />
-                        Login
-                    </Button>
+                    <Link href={"/signup"}>
+                        <Button className="gap-1 p-3 dark:text-white">
+                            {" "}
+                            <User size={18} />
+                            Get Started
+                        </Button>
+                    </Link>
+                    <Link href={"/login"}>
+                        <Button className="gap-2 p-3 px-5 dark:text-white">
+                            {" "}
+                            <LockOpen size={18} />
+                            Login
+                        </Button>
+                    </Link>
                 </div>
             </header>
             <BackgroundBeamsWithCollision className="h-screen flex flex-col items-center justify-center wrapper">
@@ -41,11 +45,13 @@ export default function Home() {
                         app, delivering engaging and high-quality text in
                         seconds.
                     </p>
-                    <Button className="gap-1 text-lg p-6 mt-2 rounded-sm bg-gradient-to-tl from-purple-500 via-purple-700 to-blue-600 dark:text-white">
-                        {" "}
-                        <ChevronRight size={22} />
-                        Get Started
-                    </Button>
+                    <Link href={"/signup"}>
+                        <Button className="gap-1 text-lg p-6 mt-2 rounded-sm bg-gradient-to-tl from-purple-500 via-purple-700 to-blue-600 dark:text-white">
+                            {" "}
+                            <ChevronRight size={22} />
+                            Get Started
+                        </Button>
+                    </Link>
                 </section>
                 {/* <section className="wrapper md:flex  md:flex-wrap ">
                     <div className="h-36 w-36 bg-primary rounded flex flex-col justify-center items-center p-2 gap-2">
