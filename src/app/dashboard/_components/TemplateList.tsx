@@ -1,18 +1,17 @@
-import { Template, template } from "@/template";
+import { Template, template } from "@/helpers/template";
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
 
-function TemplateList({search}: Readonly<{search: string}>) {
-    const [tempData, setTempData] = useState<Template[]>(template)
+function TemplateList({ search }: Readonly<{ search: string }>) {
+    const [tempData, setTempData] = useState<Template[]>(template);
     useEffect(() => {
-        if(search && search!=""){
+        if (search && search != "") {
             const data = tempData.filter((item) => {
-                return item.name.toLowerCase().includes(search.toLowerCase())
-            })
-            setTempData(data)
-        }
-        else{
-            setTempData(template)
+                return item.name.toLowerCase().includes(search.toLowerCase());
+            });
+            setTempData(data);
+        } else {
+            setTempData(template);
         }
     }, [search]);
     return (
