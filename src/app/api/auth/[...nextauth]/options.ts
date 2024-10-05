@@ -51,11 +51,12 @@ export const NextAuthOption: NextAuthOptions = {
 
         // Return user data if authentication is successful
         return {
-          id: user.id,
+          id: user.id.toString(),
           email: user.email,
           username: user.username,
           name: user.name,
           profileUrl: user.profileUrl,
+          isVerified: user.isVerified,
         };
       },
     }),
@@ -102,6 +103,7 @@ export const NextAuthOption: NextAuthOptions = {
         token.username = username;
         token.picture = picture;
         token.name = profile.name || username;
+
       }
 
       // Attach user details if coming from credentials login
@@ -110,6 +112,7 @@ export const NextAuthOption: NextAuthOptions = {
         token.username = user.username;
         token.name = user.name;
         token.picture = user.profileUrl;
+        token.isVerified = user.isVerified;
       }
 
       return token;
@@ -121,6 +124,7 @@ export const NextAuthOption: NextAuthOptions = {
         session.user!.username = token.username;
         session.user!.name = token.name;
         session.user!.picture = token.picture;
+        session.user!.isVerified = token.isVerified;
       }
 
       return session;
