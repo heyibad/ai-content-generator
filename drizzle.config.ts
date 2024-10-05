@@ -5,5 +5,5 @@ export default defineConfig({
     out: "./utils/migrations",
     dialect:"postgresql",
     dbCredentials:{
-        url:String(process.env.NEON_DB_URL!)
+        url:String(process.env.NEXT_PUBLIC_NEON_DB_URL!)
     }})
