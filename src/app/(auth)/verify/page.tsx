@@ -1,116 +1,93 @@
-import {
-    Body,
-    Button,
-    Container,
-    Head,
-    Hr,
-    Html,
-    Img,
-    Preview,
-    Section,
-    Text,
-} from "@react-email/components";
-import * as React from "react";
+"use client"
+import React, { useState } from "react";
+import ThemeToggle from "@/app/_components/theme-toggle";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
-export const KoalaWelcomeEmail = ({
-    username ="ibad",
-    verifyCode="087655",
-    url
-}: {
-    username: string;
-    verifyCode: string;
-    url: string;
-}) => (
-    <Html>
-        <Head />
-        <Preview>
-            The sales intelligence platform that helps you uncover qualified
-            leads.
-        </Preview>
-        <Body style={main}>
-            <Container style={container}>
-                <Img
-                    src={`/logo.svg`}
-                    width="100"
-                    height="70"
-                    alt="Koala"
-                    style={logo}
-                />
-                <Text style={paragraph}>Hi {username},</Text>
-                <Text style={paragraph}>
-                    Welcome to Ai Content Generator App, the content generation
-                    platform that helps you uncover qualified content and
-                    faster.
-                </Text>
-                <Section style={{color:"black",marginBottom:"20px",alignItems:"center", fontSize:"2rem", display:"flex", justifyContent:"center", fontWeight:"700", letterSpacing:"10px"}}>
-                    {verifyCode}
+const VerifyPage = () => {
+    const [code, setCode] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [message, setMessage] = useState("");
+    const session=useSession()
+    const router = useRouter();
 
-                </Section>
-                <Section style={btnContainer}>
-                    <Button style={button} href={`${url}/${verifyCode}`}>
-                        Verify
-                    </Button>
-                </Section>
-                <Text style={paragraph}>
-                    Best,
-                    <br />
-                    The Ai Content Generator Team
-                </Text>
-                <Hr style={hr} />
-                <Text style={footer}>
-                    Thank you for registering. Please use the following
-                    verification code to complete your registration
-                </Text>
-            </Container>
-        </Body>
-    </Html>
-);
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
 
+        try {
+            const response = await fetch("/api/verify", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ code,email:session.data?.user?.email } ),
+            });
 
-export default KoalaWelcomeEmail;
+            const result = await response.json();
+            if (response.ok) {
+                setMessage("Code verified successfully!");
+                router.push("/dashboard");
+            } else {
+                setMessage(result.message || "Verification failed.");
+            }
+        } catch (error) {
+            setMessage("An error occurred.");
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
-const main = {
-    backgroundColor: "#ffffff",
-    fontFamily:
-        '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+    return (
+        <div className="bg-gray-100 text-gray-900 flex justify-center dark:bg-[#18181B] dark:text-white mx-auto">
+            <div className="max-w-screen-xl m-0 sm:m-10 md:m-0 bg-white shadow sm:rounded-lg flex justify-center flex-1 dark:bg-[#18181B] dark:text-white">
+                <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
+                    <div className="mt-1 flex flex-col items-center">
+                        <h1 className="text-2xl xl:text-3xl font-extrabold flex gap-4 mt-16 md:mt-24 ml-2">
+                            Verify Account <ThemeToggle />
+                        </h1>
+                        <div className="w-full flex-1 mr-4">
+                            <form onSubmit={handleSubmit} className="mx-auto max-w-xs">
+                                <div className="mb-8 mt-4 border-b text-center">
+                                    <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2 dark:bg-[#18181B] dark:text-white">
+                                        Enter Your Verification Code
+                                    </div>
+                                </div>
+
+                                <input
+                                    type="text"
+                                    className="w-full px-4 py-2 border rounded-md text-sm text-gray-700 dark:text-white dark:bg-[#2d2d2d] dark:border-gray-600"
+                                    placeholder="Enter verification code"
+                                    value={code}
+                                    onChange={(e) => setCode(e.target.value)}
+                                />
+
+                                <button
+                                    type="submit"
+                                    disabled={isSubmitting}
+                                    className="mt-4 w-full py-2 px-4 bg-indigo-600 text-white rounded-md font-semibold transition duration-300 hover:bg-indigo-700"
+                                >
+                                    {isSubmitting ? "Verifying..." : "Verify"}
+                                </button>
+
+                                {message && (
+                                    <p className="mt-4 text-center text-sm text-red-500">{message}</p>
+                                )}
+                            </form>
+
+                        
+                        </div>
+                    </div>
+                </div>
+                <div className="flex-1 h-[90vh] rounded mt-10 bg-indigo-100 text-center hidden lg:flex">
+                    <div
+                        className="m-1 xl:m-16 w-full bg-contain bg-center bg-no-repeat"
+                        style={{
+                            backgroundImage: "url('/hero.svg')",
+                        }}
+                    ></div>
+                </div>
+            </div>
+        </div>
+    );
 };
 
-const container = {
-    margin: "0 auto",
-    padding: "20px 0 48px",
-};
-
-const logo = {
-    margin: "15px auto",
-};
-
-const paragraph = {
-    fontSize: "16px",
-    lineHeight: "26px",
-    color: "#4a4a4a",
-};
-
-const btnContainer = {
-    textAlign: "center" as const,
-};
-
-const button = {
-    backgroundColor: "#5F51E8",
-    borderRadius: "3px",
-    color: "#fff",
-    fontSize: "16px",
-    textDecoration: "none",
-    textAlign: "center" as const,
-    display: "block",
-    padding: "12px",
-};
-
-const hr = {
-    borderColor: "#cccccc",
-    margin: "20px 0",
-};
-
-const footer = {
-    color: "#8898aa",
-    fontSize: "12px",
-};
+export default VerifyPage;
