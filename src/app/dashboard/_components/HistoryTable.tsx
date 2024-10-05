@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import {
     Table,
     TableBody,
@@ -7,30 +8,96 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
+import CopyButton from "./CopyButton";
 
+type tableData = {
+    name: string;
+    content: string;
+    date: string;
+};
+
+const table: tableData[] = [
+    {
+        name: "youtube-seo-title",
+        content:
+            "## Supercharge Your Django API: Building for Speed and EfficiencyDjango is a fantastic framework for building robust web applications, including powerful APIs. However, when it comes to speed, every millisecond counts.  A sluggish API can lead to frustrated users, slow website load times, and even lost revenue.This guide dives into practical techniques and strategies to supercharge your Django API performance. We'll cover key areas, from optimizing database queries to leveraging caching mechanisms.### **1.  Database Optimization: The Foundation of Speed**#### **a)  Efficient Queries:*** **Minimize Database Calls:** Reduce the number of database queries your API makes.  Group related data retrieval within a single query.* **Optimize Query Filters:** Utilize indexes effectively to speed up data retrieval. Analyze query execution plans to identify potential bottlenecks.* **Select Only Necessary Data:** Avoid fetching unnecessary columns by explicitly selecting only the required fields.#### **b)  Database Caching:*** **In-Memory Caching:** Cache frequently accessed data in memory using tools like `django-cache-machine`. This significantly reduces database load.* **Query Caching:** Utilize `django-cache-machine` or `django-redis` to cache query results directly. This is ideal for unchanging data or frequently repeated queries.### **2.  Leveraging Django's Built-in Tools**#### **a)  Django's ORM:*** **Model Pre-Fetching:** Eagerly load related models to avoid N+1 queries. Utilize the `select_related` and `prefetch_related` methods for efficient data loading.* **Raw SQL Queries:** For complex operations or scenarios where the ORM doesn't offer the best performance, consider using raw SQL queries with caution.#### **b)  Django's Middleware:*** **GZIP Compression:**  Compress response data to reduce the payload size.* **Content Negotiation:**  Optimize response formats for different clients (JSON, XML) to ensure efficient data transmission.### **3.  Harnessing External Libraries**#### **a)  Asynchronous Handling:*** **Celery:** Offload time-consuming tasks (background processing, email sending) to a separate queue to keep your API responsive.#### **b)  Advanced Caching Solutions:*** **Redis:** A powerful key-value store for caching complex data structures and enabling session management.* **Memcached:** Another in-memory caching solution designed for high performance.### **4.  Code Optimization and Best Practices**#### **a)  Code Profiling:*** **Python Profilers:** Tools like `cProfile` and `line_profiler` help identify performance bottlenecks in your Python code.#### **b)  Clean Code and Data Structures:*** **Clear Code:** Prioritize clean, readable code for easy maintenance and optimization.* **Appropriate Data Structures:** Choose the right data structures (lists, dictionaries) based on your API's requirements.### **5.  Monitoring and Tuning**#### **a)  Performance Metrics:*** **Monitoring Tools:** Leverage tools like Prometheus or Grafana to monitor API performance and identify areas for improvement.#### **b)  A/B Testing:*** **Experimentation:** Conduct A/B testing to compare different API optimizations and identify the most impactful changes.### **Conclusion:**Building a fast and efficient Django API requires a holistic approach. By following these optimization techniques, you can ensure your API delivers a smooth and responsive user experience, regardless of the traffic load. Remember, performance is a continuous journey, requiring constant monitoring and fine-tuning to keep your API running at peak efficiency. ",
+        date: " 2024-09-24",
+    },
+    {
+        name: "youtube-seo-title",
+        content:
+            "## Supercharge Your Django API: Building for Speed and EfficiencyDjango is a fantastic framework for building robust web applications, including powerful APIs. However, when it comes to speed, every millisecond counts.  A sluggish API can lead to frustrated users, slow website load times, and even lost revenue.This guide dives into practical techniques and strategies to supercharge your Django API performance. We'll cover key areas, from optimizing database queries to leveraging caching mechanisms.### **1.  Database Optimization: The Foundation of Speed**#### **a)  Efficient Queries:*** **Minimize Database Calls:** Reduce the number of database queries your API makes.  Group related data retrieval within a single query.* **Optimize Query Filters:** Utilize indexes effectively to speed up data retrieval. Analyze query execution plans to identify potential bottlenecks.* **Select Only Necessary Data:** Avoid fetching unnecessary columns by explicitly selecting only the required fields.#### **b)  Database Caching:*** **In-Memory Caching:** Cache frequently accessed data in memory using tools like `django-cache-machine`. This significantly reduces database load.* **Query Caching:** Utilize `django-cache-machine` or `django-redis` to cache query results directly. This is ideal for unchanging data or frequently repeated queries.### **2.  Leveraging Django's Built-in Tools**#### **a)  Django's ORM:*** **Model Pre-Fetching:** Eagerly load related models to avoid N+1 queries. Utilize the `select_related` and `prefetch_related` methods for efficient data loading.* **Raw SQL Queries:** For complex operations or scenarios where the ORM doesn't offer the best performance, consider using raw SQL queries with caution.#### **b)  Django's Middleware:*** **GZIP Compression:**  Compress response data to reduce the payload size.* **Content Negotiation:**  Optimize response formats for different clients (JSON, XML) to ensure efficient data transmission.### **3.  Harnessing External Libraries**#### **a)  Asynchronous Handling:*** **Celery:** Offload time-consuming tasks (background processing, email sending) to a separate queue to keep your API responsive.#### **b)  Advanced Caching Solutions:*** **Redis:** A powerful key-value store for caching complex data structures and enabling session management.* **Memcached:** Another in-memory caching solution designed for high performance.### **4.  Code Optimization and Best Practices**#### **a)  Code Profiling:*** **Python Profilers:** Tools like `cProfile` and `line_profiler` help identify performance bottlenecks in your Python code.#### **b)  Clean Code and Data Structures:*** **Clear Code:** Prioritize clean, readable code for easy maintenance and optimization.* **Appropriate Data Structures:** Choose the right data structures (lists, dictionaries) based on your API's requirements.### **5.  Monitoring and Tuning**#### **a)  Performance Metrics:*** **Monitoring Tools:** Leverage tools like Prometheus or Grafana to monitor API performance and identify areas for improvement.#### **b)  A/B Testing:*** **Experimentation:** Conduct A/B testing to compare different API optimizations and identify the most impactful changes.### **Conclusion:**Building a fast and efficient Django API requires a holistic approach. By following these optimization techniques, you can ensure your API delivers a smooth and responsive user experience, regardless of the traffic load. Remember, performance is a continuous journey, requiring constant monitoring and fine-tuning to keep your API running at peak efficiency. ",
+        date: " 2024-09-24",
+    },
+    {
+        name: "youtube-seo-title",
+        content:
+            "## Supercharge Your Django API: Building for Speed and EfficiencyDjango is a fantastic framework for building robust web applications, including powerful APIs. However, when it comes to speed, every millisecond counts.  A sluggish API can lead to frustrated users, slow website load times, and even lost revenue.This guide dives into practical techniques and strategies to supercharge your Django API performance. We'll cover key areas, from optimizing database queries to leveraging caching mechanisms.### **1.  Database Optimization: The Foundation of Speed**#### **a)  Efficient Queries:*** **Minimize Database Calls:** Reduce the number of database queries your API makes.  Group related data retrieval within a single query.* **Optimize Query Filters:** Utilize indexes effectively to speed up data retrieval. Analyze query execution plans to identify potential bottlenecks.* **Select Only Necessary Data:** Avoid fetching unnecessary columns by explicitly selecting only the required fields.#### **b)  Database Caching:*** **In-Memory Caching:** Cache frequently accessed data in memory using tools like `django-cache-machine`. This significantly reduces database load.* **Query Caching:** Utilize `django-cache-machine` or `django-redis` to cache query results directly. This is ideal for unchanging data or frequently repeated queries.### **2.  Leveraging Django's Built-in Tools**#### **a)  Django's ORM:*** **Model Pre-Fetching:** Eagerly load related models to avoid N+1 queries. Utilize the `select_related` and `prefetch_related` methods for efficient data loading.* **Raw SQL Queries:** For complex operations or scenarios where the ORM doesn't offer the best performance, consider using raw SQL queries with caution.#### **b)  Django's Middleware:*** **GZIP Compression:**  Compress response data to reduce the payload size.* **Content Negotiation:**  Optimize response formats for different clients (JSON, XML) to ensure efficient data transmission.### **3.  Harnessing External Libraries**#### **a)  Asynchronous Handling:*** **Celery:** Offload time-consuming tasks (background processing, email sending) to a separate queue to keep your API responsive.#### **b)  Advanced Caching Solutions:*** **Redis:** A powerful key-value store for caching complex data structures and enabling session management.* **Memcached:** Another in-memory caching solution designed for high performance.### **4.  Code Optimization and Best Practices**#### **a)  Code Profiling:*** **Python Profilers:** Tools like `cProfile` and `line_profiler` help identify performance bottlenecks in your Python code.#### **b)  Clean Code and Data Structures:*** **Clear Code:** Prioritize clean, readable code for easy maintenance and optimization.* **Appropriate Data Structures:** Choose the right data structures (lists, dictionaries) based on your API's requirements.### **5.  Monitoring and Tuning**#### **a)  Performance Metrics:*** **Monitoring Tools:** Leverage tools like Prometheus or Grafana to monitor API performance and identify areas for improvement.#### **b)  A/B Testing:*** **Experimentation:** Conduct A/B testing to compare different API optimizations and identify the most impactful changes.### **Conclusion:**Building a fast and efficient Django API requires a holistic approach. By following these optimization techniques, you can ensure your API delivers a smooth and responsive user experience, regardless of the traffic load. Remember, performance is a continuous journey, requiring constant monitoring and fine-tuning to keep your API running at peak efficiency. ",
+        date: " 2024-09-24",
+    },
+    {
+        name: "youtube-seo-title",
+        content:
+            "## Supercharge Your Django API: Building for Speed and EfficiencyDjango is a fantastic framework for building robust web applications, including powerful APIs. However, when it comes to speed, every millisecond counts.  A sluggish API can lead to frustrated users, slow website load times, and even lost revenue.This guide dives into practical techniques and strategies to supercharge your Django API performance. We'll cover key areas, from optimizing database queries to leveraging caching mechanisms.### **1.  Database Optimization: The Foundation of Speed**#### **a)  Efficient Queries:*** **Minimize Database Calls:** Reduce the number of database queries your API makes.  Group related data retrieval within a single query.* **Optimize Query Filters:** Utilize indexes effectively to speed up data retrieval. Analyze query execution plans to identify potential bottlenecks.* **Select Only Necessary Data:** Avoid fetching unnecessary columns by explicitly selecting only the required fields.#### **b)  Database Caching:*** **In-Memory Caching:** Cache frequently accessed data in memory using tools like `django-cache-machine`. This significantly reduces database load.* **Query Caching:** Utilize `django-cache-machine` or `django-redis` to cache query results directly. This is ideal for unchanging data or frequently repeated queries.### **2.  Leveraging Django's Built-in Tools**#### **a)  Django's ORM:*** **Model Pre-Fetching:** Eagerly load related models to avoid N+1 queries. Utilize the `select_related` and `prefetch_related` methods for efficient data loading.* **Raw SQL Queries:** For complex operations or scenarios where the ORM doesn't offer the best performance, consider using raw SQL queries with caution.#### **b)  Django's Middleware:*** **GZIP Compression:**  Compress response data to reduce the payload size.* **Content Negotiation:**  Optimize response formats for different clients (JSON, XML) to ensure efficient data transmission.### **3.  Harnessing External Libraries**#### **a)  Asynchronous Handling:*** **Celery:** Offload time-consuming tasks (background processing, email sending) to a separate queue to keep your API responsive.#### **b)  Advanced Caching Solutions:*** **Redis:** A powerful key-value store for caching complex data structures and enabling session management.* **Memcached:** Another in-memory caching solution designed for high performance.### **4.  Code Optimization and Best Practices**#### **a)  Code Profiling:*** **Python Profilers:** Tools like `cProfile` and `line_profiler` help identify performance bottlenecks in your Python code.#### **b)  Clean Code and Data Structures:*** **Clear Code:** Prioritize clean, readable code for easy maintenance and optimization.* **Appropriate Data Structures:** Choose the right data structures (lists, dictionaries) based on your API's requirements.### **5.  Monitoring and Tuning**#### **a)  Performance Metrics:*** **Monitoring Tools:** Leverage tools like Prometheus or Grafana to monitor API performance and identify areas for improvement.#### **b)  A/B Testing:*** **Experimentation:** Conduct A/B testing to compare different API optimizations and identify the most impactful changes.### **Conclusion:**Building a fast and efficient Django API requires a holistic approach. By following these optimization techniques, you can ensure your API delivers a smooth and responsive user experience, regardless of the traffic load. Remember, performance is a continuous journey, requiring constant monitoring and fine-tuning to keep your API running at peak efficiency. ",
+        date: " 2024-09-24",
+    },
+    {
+        name: "youtube-seo-title",
+        content:
+            "## Supercharge Your Django API: Building for Speed and EfficiencyDjango is a fantastic framework for building robust web applications, including powerful APIs. However, when it comes to speed, every millisecond counts.  A sluggish API can lead to frustrated users, slow website load times, and even lost revenue.This guide dives into practical techniques and strategies to supercharge your Django API performance. We'll cover key areas, from optimizing database queries to leveraging caching mechanisms.### **1.  Database Optimization: The Foundation of Speed**#### **a)  Efficient Queries:*** **Minimize Database Calls:** Reduce the number of database queries your API makes.  Group related data retrieval within a single query.* **Optimize Query Filters:** Utilize indexes effectively to speed up data retrieval. Analyze query execution plans to identify potential bottlenecks.* **Select Only Necessary Data:** Avoid fetching unnecessary columns by explicitly selecting only the required fields.#### **b)  Database Caching:*** **In-Memory Caching:** Cache frequently accessed data in memory using tools like `django-cache-machine`. This significantly reduces database load.* **Query Caching:** Utilize `django-cache-machine` or `django-redis` to cache query results directly. This is ideal for unchanging data or frequently repeated queries.### **2.  Leveraging Django's Built-in Tools**#### **a)  Django's ORM:*** **Model Pre-Fetching:** Eagerly load related models to avoid N+1 queries. Utilize the `select_related` and `prefetch_related` methods for efficient data loading.* **Raw SQL Queries:** For complex operations or scenarios where the ORM doesn't offer the best performance, consider using raw SQL queries with caution.#### **b)  Django's Middleware:*** **GZIP Compression:**  Compress response data to reduce the payload size.* **Content Negotiation:**  Optimize response formats for different clients (JSON, XML) to ensure efficient data transmission.### **3.  Harnessing External Libraries**#### **a)  Asynchronous Handling:*** **Celery:** Offload time-consuming tasks (background processing, email sending) to a separate queue to keep your API responsive.#### **b)  Advanced Caching Solutions:*** **Redis:** A powerful key-value store for caching complex data structures and enabling session management.* **Memcached:** Another in-memory caching solution designed for high performance.### **4.  Code Optimization and Best Practices**#### **a)  Code Profiling:*** **Python Profilers:** Tools like `cProfile` and `line_profiler` help identify performance bottlenecks in your Python code.#### **b)  Clean Code and Data Structures:*** **Clear Code:** Prioritize clean, readable code for easy maintenance and optimization.* **Appropriate Data Structures:** Choose the right data structures (lists, dictionaries) based on your API's requirements.### **5.  Monitoring and Tuning**#### **a)  Performance Metrics:*** **Monitoring Tools:** Leverage tools like Prometheus or Grafana to monitor API performance and identify areas for improvement.#### **b)  A/B Testing:*** **Experimentation:** Conduct A/B testing to compare different API optimizations and identify the most impactful changes.### **Conclusion:**Building a fast and efficient Django API requires a holistic approach. By following these optimization techniques, you can ensure your API delivers a smooth and responsive user experience, regardless of the traffic load. Remember, performance is a continuous journey, requiring constant monitoring and fine-tuning to keep your API running at peak efficiency. ",
+        date: " 2024-09-24",
+    },
+];
 const HistoryTable = () => {
-    return (
+    const aires = "";
 
-            <Table>
-                <TableCaption>A list of your recent invoices.</TableCaption>
-                <TableHeader>
-                    <TableRow>
-                        <TableHead className="w-[100px]">Invoice</TableHead>
-                        <TableHead>Status</TableHead>
-                        <TableHead>Method</TableHead>
-                        <TableHead className="text-right">Amount</TableHead>
-                    </TableRow>
-                </TableHeader>
-                <TableBody>
-                    <TableRow>
-                        <TableCell className="font-medium">INV001</TableCell>
-                        <TableCell>Paid</TableCell>
-                        <TableCell>Credit Card</TableCell>
-                        <TableCell className="text-right">$250.00</TableCell>
-                    </TableRow>
-                </TableBody>
-            </Table>
-   
+    let content = aires.slice(0, 220);
+    return (
+        <Table>
+            <TableCaption>A list of your recent invoices.</TableCaption>
+            <TableHeader>
+                <TableRow className="bg-gray-200 p-4 dark:bg-black">
+                    <TableHead className=" text-center w-[100px] font-bold uppercase text-black dark:text-gray-200  ">
+                        Tool Name
+                    </TableHead>
+                    <TableHead className=" text-center font-extrabold uppercase text-black dark:text-gray-200">
+                        Content
+                    </TableHead>
+                    <TableHead className=" text-center font-extrabold uppercase text-black dark:text-gray-200">
+                        Length
+                    </TableHead>
+                    <TableHead className=" text-center font-extrabold uppercase text-black dark:text-gray-200">
+                        Date
+                    </TableHead>
+                    <TableHead className=" text-center  font-extrabold uppercase text-black dark:text-gray-200">
+                        COPY
+                    </TableHead>
+                </TableRow>
+            </TableHeader>
+            <TableBody>
+                {table.map((each,index) => {
+                    return (
+                        <TableRow key={index}>
+                            <TableCell className="font-semibold text-xm w-auto  md:h-[10vh] h-[5vh]   ">
+                                {each.name}
+                            </TableCell>
+                            <TableCell className="font-semibold text-xm  md:h-[10vh] h-[5vh]  text-wrap text-left  w-auto ">
+                                {each.content.slice(0, 220)}
+                            </TableCell>
+                            <TableCell className="font-semibold text-xm w-auto  md:h-[10vh] h-[5vh] pl-4   ">
+                               {each.content.length}
+                            </TableCell>
+                            <TableCell className="font-semibold text-xm w-[7vw] md:h-[10vh] h-[5vh]    ">
+                                {each.date}
+                            </TableCell>
+                            <TableCell className="font-semibold text-xm w-auto  md:h-[10vh] h-[5vh]    ">
+                               <CopyButton value={each.content}/>
+                            </TableCell>
+                        </TableRow>
+                    );
+                })}
+            </TableBody>
+        </Table>
     );
 };
 
