@@ -87,12 +87,13 @@ export const NextAuthOption: NextAuthOptions = {
           .where(eq(Users.email, email))
           .limit(1);
 
+
         if (!existingUser.length) {
           // Insert new user if it does not exist (OAuth signup)
           await db.insert(Users).values({
             email,
             username,
-            profileUrl: picture,
+            profileUrl: account.provider === "github" ? `https://github.com/${username}.png `: picture,
             name: profile.name || username,
             subscription: "basic", // Default subscription
           });
@@ -103,6 +104,7 @@ export const NextAuthOption: NextAuthOptions = {
         token.username = username;
         token.picture = picture;
         token.name = profile.name || username;
+     
 
       }
 
@@ -113,6 +115,8 @@ export const NextAuthOption: NextAuthOptions = {
         token.name = user.name;
         token.picture = user.profileUrl;
         token.isVerified = user.isVerified;
+        token.subscription = user.subscription;
+
       }
 
       return token;
@@ -125,6 +129,7 @@ export const NextAuthOption: NextAuthOptions = {
         session.user!.name = token.name;
         session.user!.picture = token.picture;
         session.user!.isVerified = token.isVerified;
+        session.user!.subscription = token.subscription;
       }
 
       return session;
