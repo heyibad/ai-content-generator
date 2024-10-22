@@ -16,17 +16,17 @@ export default function Home() {
                     height={100}
                     className="animate-spin-slow"
                 />
-                <div className="gap-4 flex ">
+                <div className="gap-1 md:gap-4 flex ">
                     <ThemeToggle />
                     <Link href={"/signup"}>
-                        <Button className="gap-1 p-3 dark:text-white">
+                        <Button size={"sm"} className="gap-1  dark:text-white">
                             {" "}
                             <User size={18} />
                             Get Started
                         </Button>
                     </Link>
                     <Link href={"/login"}>
-                        <Button className="gap-2 p-3 px-5 dark:text-white">
+                        <Button size="sm" className="gap-2  px-5 dark:text-white">
                             {" "}
                             <LockOpen size={18} />
                             Login
