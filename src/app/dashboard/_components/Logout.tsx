@@ -7,7 +7,7 @@ import React from "react";
 const Logout = () => {
 
     return (
-        <Button className="gap-1 hover:bg-red-500 h-9"
+        <Button size={"sm"} className="gap-1 hover:bg-red-500 h-9"
         onClick={() => signOut()}
         >
             <LogOut size={16} />
