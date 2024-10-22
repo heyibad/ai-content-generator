@@ -3,6 +3,8 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./(context)/theme-provider";
 import  Session  from "@/app/(context)/session-provider";
+import { SubscriptionProvider } from "./(context)/SubscriptionContext";
+import { Toaster } from "@/components/ui/toaster";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -25,7 +27,9 @@ export default function RootLayout({
                         defaultTheme="system"
                         enableSystem
                     >
-                        {children}
+                       <SubscriptionProvider>
+                       <Toaster/>
+                        {children}</SubscriptionProvider>
                     </ThemeProvider>
                 </body>
             </Session>
