@@ -29,6 +29,8 @@ function SideNav() {
             path: "/dashboard/setting",
         },
     ];
+
+    console.log(MenuList[2].path);
     const path = usePathname();
 
     useEffect(() => {
@@ -42,17 +44,20 @@ function SideNav() {
                 </Link>
             </div>
             <div className="mt-16">
-                {MenuList.map((menu, index) => {
+                {MenuList.map((each, index) => {
                     return (
                         <div
                             key={index}
                             className={`flex gap-3 mb-2 p-2 pl-12 text-xl items-center hover:bg-primary hover:text-white hover:rounded-lg cursor-pointer
-                    ${path == menu.path && "bg-primary text-white rounded-lg"}        
+                    ${path == each.path && "bg-primary text-white rounded-lg"}        
                             `}
                         >
-                            <menu.icon className="h-5 w-5" />
+                            <each.icon className="h-5 w-5" />
                             <h2>
-                                <Link href={menu.path}>{menu.name}</Link>
+                                <Link href={`${each.path}`}>
+                                {each.name}
+                                </Link>
+
                             </h2>
                         </div>
                     );
