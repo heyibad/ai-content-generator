@@ -29,12 +29,12 @@ export async function middleware(request: NextRequest) {
     if (!token && url.pathname.startsWith("/dashboard")) {
         return NextResponse.redirect(new URL("/login", request.url));
     }
-    if (token?.isVerified && url.pathname.startsWith("/verify")) {
-        return NextResponse.redirect(new URL("/dashboard", request.url));
-    }
-    if (!token?.isVerified && url.pathname.startsWith("/dashboard")) {
-        return NextResponse.redirect(new URL("/verify", request.url));
-    }
+    // if (token?.isVerified && url.pathname.startsWith("/verify")) {
+    //     return NextResponse.redirect(new URL("/dashboard", request.url));
+    // }
+    // if (!token?.isVerified && url.pathname.startsWith("/dashboard")) {
+    //     return NextResponse.redirect(new URL("/verify", request.url));
+    // }
 
     return NextResponse.next();
 }
