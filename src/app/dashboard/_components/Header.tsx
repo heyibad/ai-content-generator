@@ -12,7 +12,7 @@ function Header() {
                 <input
                     type="text"
                     placeholder="Search"
-                    className="outline-none pl-4 md:pl-0 w-44 md:w-full"
+                    className="outline-none pl-4 md:pl-0 w-44 md:w-full dark:bg-[#18181B]"
                 />
             </div>
             <div className="pl-2 flex items-center justify-center gap-2">
