@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { LogOut, Search, UserRoundPlus } from "lucide-react";
 import React from "react";
 import Logout from "./Logout";
+import Slider from "./Slider";
 
 function Header() {
     return (
@@ -23,7 +24,8 @@ function Header() {
                         🔥Join Membership for $9.99/Month
                     </span>
                 </Button>
-              <Logout/>
+                <Slider/>
+              <Logout className={" hidden md:flex "}/>
             </div>
         </div>
     );
