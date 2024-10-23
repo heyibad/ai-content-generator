@@ -5,9 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
 import Usage from "./Usage";
-
-function SideNav() {
-    const MenuList = [
+  export const MenuList = [
         {
             name: "Home",
             icon: Home,
@@ -29,6 +27,8 @@ function SideNav() {
             path: "/dashboard/setting",
         },
     ];
+function SideNav() {
+ 
 
     console.log(MenuList[2].path);
     const path = usePathname();
