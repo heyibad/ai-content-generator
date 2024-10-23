@@ -19,7 +19,7 @@ export default function Home() {
                 <div className="gap-1 md:gap-4 flex ">
                     <ThemeToggle />
                     <Link href={"/signup"}>
-                        <Button size={"sm"} className="gap-1  dark:text-white">
+                        <Button size={"sm"} className="gap-1 dark:text-white">
                             {" "}
                             <User size={18} />
                             Get Started
