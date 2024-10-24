@@ -20,7 +20,7 @@ function OutputSection({ output }: { output: string }) {
 
     return (
         <div
-            className={`py-4 shadow-md border rounded-lg bg-white dark:bg-[#18181B] translate-y-[25%] md:translate-y-0 col-span-2 h-[100vh] w-[85vw] md:w-full`}
+            className={`py-4 shadow-md border rounded-lg bg-white dark:bg-[#18181B] col-span-2 h-[100vh] w-[85vw] md:w-full`}
         >
             <div className="flex justify-between items-center pb-3 px-3">
                 <h2 className="font-bold m-1 text-2xl text-primary">Output</h2>
