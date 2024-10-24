@@ -250,7 +250,7 @@ export default function SettingsPage() {
             <div className="flex items-center space-x-4">
               <Avatar className="w-20 h-20">
                 <AvatarImage src={profilePicture!} alt="Profile picture" />
-                <AvatarFallback>{userData?.name.charAt(0) || userData?.username.charAt(0)}</AvatarFallback>
+                <AvatarFallback>{userData?.name.charAt(0) || userData?.username.charAt(0) || "U"}</AvatarFallback>
               </Avatar>
               <Label htmlFor="picture" className="cursor-pointer bg-secondary text-secondary-foreground hover:bg-secondary/80 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 px-4 py-2">
                 <Upload className="mr-2 h-4 w-4" />
