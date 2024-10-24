@@ -19,14 +19,14 @@ export default function Home() {
                 <div className="gap-1 md:gap-4 flex ">
                     <ThemeToggle />
                     <Link href={"/signup"}>
-                        <Button size={"sm"} className="gap-1 dark:text-white">
+                        <Button size={"sm"} className="gap-1 hidden md:flex dark:text-white">
                             {" "}
                             <User size={18} />
                             Get Started
                         </Button>
                     </Link>
                     <Link href={"/login"}>
-                        <Button size="sm" className="gap-2  px-5 dark:text-white">
+                        <Button  className="gap-2  px-5 dark:text-white">
                             {" "}
                             <LockOpen size={18} />
                             Login
