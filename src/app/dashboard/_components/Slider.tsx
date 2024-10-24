@@ -12,6 +12,7 @@ import { MenuList } from "./SideNav";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Logout from "./Logout";
+import Usage from "./Usage";
 
 interface SliderProps {
     // Define your props here
@@ -21,8 +22,7 @@ const Slider: React.FC<SliderProps> = (props) => {
     const path = usePathname();
     return (
         <div className="md:hidden flex">
-        
-          <Sheet>
+            <Sheet>
                 <SheetTrigger>
                     <AlignJustify size={28} className="mx-2" />
                 </SheetTrigger>
@@ -49,14 +49,15 @@ const Slider: React.FC<SliderProps> = (props) => {
                                         </div>
                                     );
                                 })}
-                             <Logout className=" md:hidden flex w-full mt-40 "/>
-                            </div> 
+                                <div className="mt-40">
+                                    <Usage />{" "}
+                                    <Logout className=" md:hidden flex w-[55vw] mx-auto my-3 " />
+                                </div>
+                            </div>
                         </SheetDescription>
                     </SheetHeader>
                 </SheetContent>
             </Sheet>
-          
-
         </div>
     );
 };
