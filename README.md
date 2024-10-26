@@ -1,81 +1,79 @@
-# AI Content Generator
+# 🤖 AI Content Generator
 
-A modern AI-powered content generation platform built with Next.js and Google's Generative AI. Generate diverse content types across 18 services with an intuitive interface and robust user management.
+A cutting-edge AI-powered content generation platform built with Next.js and Google's Generative AI. Create diverse content across 18 services with an intuitive interface and powerful user management. ✨
 
+## 🛠️ Tech Stack
 
-## Tech Stack
-
-### Frontend
-- **Framework**: Next.js 14
-- **Language**: TypeScript 
+### 🎨 Frontend
+- **Framework**: Next.js 14 ⚡
+- **Language**: TypeScript 📝
 - **Styling**: 
-  - Tailwind CSS 
-  - Tailwind Merge
-  - Class Variance Authority
-  - Tailwind Animate
-- **State Management**: React 18 (Context Api)
+  - 🎯 Tailwind CSS 
+  - 🔄 Tailwind Merge
+  - ⚙️ Class Variance Authority
+  - ✨ Tailwind Animate
+- **State Management**: React 18 (Context API) 🔄
 - **UI Components**:
-  - Shadcn UI/Radix UI 
-  - Acceternity
-  - Toast UI Editor
+  - 🎮 Shadcn UI/Radix UI 
+  - 🎪 Acceternity
+  - 📝 Toast UI Editor
 - **Icons**: 
-  - Lucide React
-- **Animation**: Framer Motion
+  - 🎯 Lucide React
+- **Animation**: Framer Motion 🎭
 
-### Backend & Infrastructure
+### 🏗️ Backend & Infrastructure
 - **Database**: 
-  - Neon Database (Serverless Postgres)
-  - Drizzle ORM
-- **Authentication**: NextAuth.js 4
-- **File Storage**: Cloudinary
-- **Email Service**: Resend
-- **Payment Processing**: LemonSqueezy
-- **AI Integration**: Google Generative AI SDK
+  - 🗄️ Neon Database (Serverless Postgres)
+  - 💧 Drizzle ORM
+- **Authentication**: NextAuth.js 4 🔐
+- **File Storage**: Cloudinary ☁️
+- **Email Service**: Resend 📧
+- **Payment Processing**: LemonSqueezy 💳
+- **AI Integration**: Google Generative AI SDK 🤖
 
-## Key Features
+## ⭐ Key Features
 
-### Authentication & Security
+### 🔒 Authentication & Security
 - Multi-provider authentication (Google, Email, Github)
 - Email verification system
 - Secure password hashing with bcrypt
 - Protected API routes
 - Session management
 
-### Content Generation
+### 🎯 Content Generation
 - 18 AI-powered generation services
 - Rich text editor integration
 - Content history tracking
 - Custom generation preferences
 - Real-time content preview
 
-### User Management
+### 👥 User Management
 - Custom user profiles
 - Image upload functionality
 - Usage tracking and limits
 - Settings management
 - Password change/reset
 
-### Billing & Subscriptions
-- Three Plan (Basic, Gold, Platinum)
+### 💰 Billing & Subscriptions
+- Three Plans (Basic, Gold, Platinum)
 
-### Email System
+### 📨 Email System
 - Verification emails
 
-
-### UI/UX Features
+### 🎨 UI/UX Features
 - Responsive design
-- Dark/Light mode
+- Dark/Light mode 🌓
 - Toast notifications
 - Loading states
 - Error handling
 - Dynamic dashboard
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
-- Bun or Nodejs v18+
+- Bun or Nodejs v18+ 
 
-### Installation
+### 📥 Installation
 
 1. Clone the repository:
 ```bash
@@ -132,7 +130,7 @@ bun run db:push
 bun run dev
 ```
 
-## Environment Setup
+## ⚙️ Environment Setup
 
 ### Development
 ```bash
@@ -152,7 +150,7 @@ bun build
 bun start
 ```
 
-## Contributing
+## 🤝 Contributing
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -160,16 +158,15 @@ bun start
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## License
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
+## 🙏 Acknowledgments
 
 - Next.js team for the amazing framework
 - Vercel for hosting solutions
 - Shadcn for UI components
 - Google AI team for the Generative AI SDK
 
-
-## Build with ❤️ by [Ibad](https://linkedin.com/in/heyibad)
+## Built with ❤️ by [Ibad](https://linkedin.com/in/heyibad)
