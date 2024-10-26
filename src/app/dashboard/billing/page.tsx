@@ -36,7 +36,12 @@ export default function BillingPage() {
   
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-4 py-8">
+    <div className=" mx-auto">
+ <p className="flex flex-col items-center justify-center mt-8 text-sm text-gray-400 dark:opacity-25">Disclaimer: its in a beta version <span>
+  {"(avoid to use any payment/sensitive info)"} 🫢
+  </span> </p>
+ <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-4 py-8">
+         
       {plans.map((plan) => (
         <Card key={plan.name} className="px-6 py-12 relative md:h-[60vh]">
           <CardHeader>
@@ -59,6 +64,8 @@ export default function BillingPage() {
         </Card>
       ))}
     </div>
+    </div>
+   
   );
 
 
