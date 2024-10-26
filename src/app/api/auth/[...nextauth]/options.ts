@@ -96,6 +96,7 @@ export const NextAuthOption: NextAuthOptions = {
             profileUrl: account.provider === "github" ? `https://github.com/${username}.png `: picture,
             name: profile.name || username,
             subscription: "basic", // Default subscription
+            isVerified: true, // OAuth users are always verified
           });
         }
 
