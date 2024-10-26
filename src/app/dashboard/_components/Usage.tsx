@@ -9,7 +9,7 @@ import { eq } from "drizzle-orm";
 import { TotalUsage } from "@/app/(context)/TotalUsageContext";
 import Link from "next/link";
 
-function Usage() {
+function Usage({m}:{m?:string}) {
     const { data: session, status } = useSession();
 
     const user = session?.user?.email;
@@ -32,7 +32,7 @@ function Usage() {
         user && getData();
     }, [user]);
     return (
-        <div className="m-5">
+        <div className={` ${m ? m: "m-5" }`}>
             <div className="bg-primary p-3 text-white rounded-lg">
                 <h2 className="font-medium">Credits</h2>
                 <div className="h-2 bg-[#9981f9] mt-3 rounded-lg ">
