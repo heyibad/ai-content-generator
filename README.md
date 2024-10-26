@@ -2,7 +2,6 @@
 
 A modern AI-powered content generation platform built with Next.js and Google's Generative AI. Generate diverse content types across 18 services with an intuitive interface and robust user management.
 
-![AI Content Generator Banner](/api/placeholder/1200/300)
 
 ## Tech Stack
 
@@ -174,4 +173,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 
 ## Build with ❤️ by [Ibad](https://linkedin.com/in/heyibad)
-```
