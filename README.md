@@ -1,36 +1,177 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AI Content Generator
+
+A modern AI-powered content generation platform built with Next.js and Google's Generative AI. Generate diverse content types across 18 services with an intuitive interface and robust user management.
+
+![AI Content Generator Banner](/api/placeholder/1200/300)
+
+## Tech Stack
+
+### Frontend
+- **Framework**: Next.js 14
+- **Language**: TypeScript 
+- **Styling**: 
+  - Tailwind CSS 
+  - Tailwind Merge
+  - Class Variance Authority
+  - Tailwind Animate
+- **State Management**: React 18 (Context Api)
+- **UI Components**:
+  - Shadcn UI/Radix UI 
+  - Acceternity
+  - Toast UI Editor
+- **Icons**: 
+  - Lucide React
+- **Animation**: Framer Motion
+
+### Backend & Infrastructure
+- **Database**: 
+  - Neon Database (Serverless Postgres)
+  - Drizzle ORM
+- **Authentication**: NextAuth.js 4
+- **File Storage**: Cloudinary
+- **Email Service**: Resend
+- **Payment Processing**: LemonSqueezy
+- **AI Integration**: Google Generative AI SDK
+
+## Key Features
+
+### Authentication & Security
+- Multi-provider authentication (Google, Email, Github)
+- Email verification system
+- Secure password hashing with bcrypt
+- Protected API routes
+- Session management
+
+### Content Generation
+- 18 AI-powered generation services
+- Rich text editor integration
+- Content history tracking
+- Custom generation preferences
+- Real-time content preview
+
+### User Management
+- Custom user profiles
+- Image upload functionality
+- Usage tracking and limits
+- Settings management
+- Password change/reset
+
+### Billing & Subscriptions
+- Three Plan (Basic, Gold, Platinum)
+
+### Email System
+- Verification emails
+
+
+### UI/UX Features
+- Responsive design
+- Dark/Light mode
+- Toast notifications
+- Loading states
+- Error handling
+- Dynamic dashboard
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Bun or Nodejs v18+
 
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/heyibad/ai-content-generator.git
+cd ai-content-generator
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+bun install  # or npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Set up environment variables:
+```env
+# Create .env file with the following variables
+# Login Secrets
+GOOGLE_CLIENT_ID
+GOOGLE_CLIENT_SECRET
+GITHUB_CLIENT_ID
+GITHUB_CLIENT_SECRET
+JWT_SECRET
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+NEXT_PUBLIC_DOMAIN=http://localhost:3000
 
-## Learn More
+# Email Secrets
+NEXT_PUBLIC_EMAIL_KEY
 
-To learn more about Next.js, take a look at the following resources:
+# LemonSqueezy Secrets
+LEMON_API_KEY
+LEMON_WEBHOOK_SECRET
+LEMON_STORE_ID
+GOLD_CHECKOUT_URL
+PLATINUM_CHECKOUT_URL
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Cloudinary Secrets
+CLOUDINARY_CLOUD_NAME
+CLOUDINARY_API_KEY
+CLOUDINARY_API_SECRET
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Google AI Secrets
+NEXT_PUBLIC_GOOGLE_API_KEY
 
-## Deploy on Vercel
+# Neon Database Secrets
+NEXT_PUBLIC_NEON_DB_URL
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Initialize the database:
+```bash
+bun run db:push
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+5. Start the development server:
+```bash
+bun run dev
+```
+
+## Environment Setup
+
+### Development
+```bash
+# Install dependencies
+bun i 
+
+# Run development server
+bun run dev
+```
+
+### Production
+```bash
+# Build application
+bun build
+
+# Start production server
+bun start
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Next.js team for the amazing framework
+- Vercel for hosting solutions
+- Shadcn for UI components
+- Google AI team for the Generative AI SDK
+
+
+## Build with ❤️ by [Ibad](https://linkedin.com/in/heyibad)
+```
