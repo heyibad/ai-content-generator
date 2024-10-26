@@ -1,6 +1,4 @@
-"use client";
-
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Sheet,
   SheetContent,
@@ -19,10 +17,15 @@ interface SliderProps {}
 
 const Slider: React.FC<SliderProps> = () => {
   const path = usePathname();
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [path]);
 
   return (
     <div className="md:hidden flex">
-      <Sheet>
+      <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger>
           <AlignJustify size={28} className="mx-2" />
         </SheetTrigger>
