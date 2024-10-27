@@ -9,6 +9,8 @@ import { eq } from "drizzle-orm";
 import { TotalUsage } from "@/app/(context)/TotalUsageContext";
 import Link from "next/link";
 
+export const dynamic = 'force-dynamic';
+
 function Usage({m}:{m?:string}) {
     const { data: session, status } = useSession();
 
